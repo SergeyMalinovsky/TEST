@@ -4,6 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>TODO</title>
         <link rel="stylesheet" href="css/style.css" type="text/css"></link>
+        
     </head>
     <body>
         <div class="header">
@@ -11,19 +12,21 @@
                 <h1>ToDO List</h1>
             </div>
             <div class="search">
-                <form id="input-form">
-                    <input type="text" size="40" class="InputField">
-                    <input type="submit" size="60" value="Add" class="AddButton">
-                </form> 
+                <input type="text" size="40" class="InputField" required>
+                <input type="submit" size="60" value="Add" class="AddButton" onclick='AddTask()'>
             </div>
         </div>
         <div class="article">
-            <ul>
-                <li><div class="item"><input type="checkbox"> <s>First Item</s> <a href="#"><img src="img/delete_icon.jpg" alt="Delete"></a></div></li>
+            <ul id="ul">
+                <!-- <li><div class="item"><input type="checkbox"> <s>First Item</s> <a href="#"><img src="img/delete_icon.jpg" alt="Delete"></a></div></li>
                 <li><div class="item"><input type="checkbox"> Second Item <a href="#"><img src="img/delete_icon.jpg" alt="Delete"></a></div></li>
                 <li><div class="item"><input type="checkbox"> Third Item <a href="#"><img src="img/delete_icon.jpg" alt="Delete"></a></div></li>
+            -->
+
+
             </ul>
         </div>
         
     </body>
+    <script type="text/javascript" src="js/index.js"></script>
 </html>
