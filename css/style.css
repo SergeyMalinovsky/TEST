@@ -87,3 +87,13 @@ body {
     height: 18px;
     line-height: 50px;
 }
+
+.cross {
+    text-decoration: line-through;
+}
+
+.completeTask {
+    width: 90%;
+    display: inline-block;
+}
+
