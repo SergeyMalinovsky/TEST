@@ -47,15 +47,15 @@ body {
     color: blue;
 }
 
-.article {
+#article {
 
 }
 
-.article>ul {
+#article>ul {
     padding-top: 10px;
 }
 
-.article>ul>li {
+#article>ul>li {
     padding-left: 10px;
     height: 50px;
     line-height: 50px;
