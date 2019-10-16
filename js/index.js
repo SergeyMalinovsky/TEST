@@ -33,11 +33,14 @@ function addTask(){
     let _text = document.getElementsByClassName('InputField');
     if(_text[0].value){
         console.log(_text[0].value);
+
         items.push({id: items.length, text: _text[0].value, state: false});
+
         template_li.innerHTML += template(items.length, false, _text[0].value);
     }else{
         alert("Поле не может быть пустым!");
     }
+    addLocalStorage();
 }
 
 function addViewTask(_items=items, v=items.length){
@@ -49,6 +52,18 @@ function DeleteTask(_id){
     console.log(_id);
     let item = document.querySelector('li[itemid="'+_id+'"]');
     console.log(item);
+
+    for(i in items){
+        if(items[i].id == _id){
+            if(items.length == 1) i=items.length;
+            items.splice(i, 1);
+            console.log("Found!");
+            break;
+        }
+    }
+
+    addLocalStorage();
+
     item.remove();
 }
 
@@ -58,6 +73,14 @@ function changeStateTask(_id){
     let elem = document.getElementsByClassName(`completeTask${_id}`)[0];
     console.log(_id+" "+state_checkbox+" "+elem);
 
+    for(i in items){
+        if(items[i].id == _id){
+            items[i].state == state_checkbox;
+            console.log("Found!");
+            break;
+        }
+    }
+
     //let rmText = document.
     if(state_checkbox){
         elem.style.setProperty("text-decoration", "line-through");
@@ -65,24 +88,41 @@ function changeStateTask(_id){
         elem.style.setProperty("text-decoration", "none");
     }
 }
+
+// ============================== Local Storage Functions =================================
+
+function addLocalStorage(){
+    let jsonItems = JSON.stringify(items);
+    localStorage.setItem("local_data", jsonItems);
+}
+
+function loadLocalStorage(){
+    let _loadItems = JSON.parse(localStorage.getItem("local_data"));
+    console.log(_loadItems);
+    return _loadItems;
+}
+
 // ========================================================================================
-function viewItems(_items){
+function viewItems(){
 
     let tmp_item_name = '';
     let checkbox_checked = ''
 
+    items = loadLocalStorage();
     //console.log(_items);
     item_li.innerHTML = '';
 
-    if(_items.length == 0){
+    if(items.length == 0){
         item_li.innerHTML = "<div class='item'><h3 align='center'>Empty...</h3></div>"
     }else{
-        for(let i=0; i<_items.length; i++){
+        for(let i=0; i<items.length; i++){
 
             addViewTask(items, i);
             
         }    
     }
+
+    addLocalStorage();
 }
 
-viewItems(items);
+viewItems();
