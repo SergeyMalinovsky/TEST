@@ -78,6 +78,10 @@ body {
     
 }
 
+.item label {
+    cursor: pointer;
+}
+
 .item>a>img {
     width: 18px;
     height: 18px;

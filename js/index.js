@@ -16,8 +16,8 @@ const template = (_id, _state, _text) => {
 
     return `<li itemid='${_id}'>
                 <div class='item'>
-                    <input type='checkbox' ${checkbox_checked} class='ch-box-complete-task${_id}' onclick='changeStateTask(${_id})'> 
-                        <s class='completeTask${_id}'>${tmp_text}</s>
+                    <input type='checkbox' ${checkbox_checked} class='ch-box-complete-task${_id}' id='${_id}' onclick='changeStateTask(${_id})'> 
+                        <label for="${_id}" class='completeTask${_id}' >${tmp_text}</label>
 <style>
 .completeTask${_id} {
     text-decoration: none;
