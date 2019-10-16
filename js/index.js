@@ -1,6 +1,6 @@
 
 const template = (_id, _state, _text) => {
-    let tmp_text;
+    let tmp_text = _text;
     let checkbox_checked = '';
     return `<li itemid='${_id}'>
                 <div class='item'>
