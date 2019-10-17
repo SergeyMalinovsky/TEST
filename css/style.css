@@ -93,6 +93,7 @@ body {
 }
 
 .completeTask {
+    white-space: normal;
     width: 90%;
     display: inline-block;
 }
